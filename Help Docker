@@ -1,0 +1,5 @@
+docker-compose up -d  			# Sobe as imagens condiguradas no arquivo docker-compose.yaml presenta na pasta do comando
+docker exec -it <mycontainer> bash	# Abre o terminal no Container especificado onde <mycontainer> é o nome ou o ID
+docker-compose kill			# Mata todos os containers que foram abertos pelo Compose
+
+A diferença do docker-compose para o docker em si é que o primeiro pode subir e gerenciar diversos containers
