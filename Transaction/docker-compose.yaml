@@ -1,5 +1,15 @@
 version: '3'
 services:
+  
+  app:
+    image: golang:1.21.4-bullseye
+    command: tail -f /dev/null
+    volumes:
+      - .:/go/src/app
+    extra_hosts:
+    - "host.docker.internal:172.17.0.1"
+
+
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.0
     environment:
@@ -29,7 +39,7 @@ services:
     depends_on:
       - kafka
     ports:
-      - "9021:9021"
+      - 9021:9021
     environment:
       CONTROL_CENTER_BOOTSTRAP_SERVERS: 'kafka:9092'
       CONTROL_CENTER_REPLICATION_FACTOR: 1
